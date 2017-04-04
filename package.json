@@ -8,8 +8,16 @@
   },
   "author": "Vitiko <vitiko@mail.ru>",
   "license": "ISC",
+
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/vitiko/solidity-doc.git"
+  },
+
   "dependencies": {
     "solidity-structure": "^0.1.10",
     "twig": "^1.10.4"
   }
 }
+
+
