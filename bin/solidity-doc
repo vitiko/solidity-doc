@@ -1,0 +1,39 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const path = require ('path');
+const program = require('commander');
+
+const { SolidityDoc } = require('../index');
+
+
+program
+    .version('0.1.0')
+    .usage('<pathToSolidityFile> <pathToDocFile>  [options]');
+
+
+program
+    .command('generate <pathToSolidityFile> [targetFile]')
+    .option('-f, --format [format]', 'Doc format (default - md)')
+    .description('Generate documentation from solidity file')
+    .action((source, target) => {
+
+        const solidityDoc = new SolidityDoc();
+
+        solidityDoc.generate ({ source, target});
+       // console.log (JSON.stringify(node.web3.eth.getTransaction(transactionHash),null,2))
+    });
+
+program
+    .command('*')
+    .description('show help')
+    .action(() =>  program.outputHelp());
+
+program.parse(process.argv);
+
+
+
+
+/** Default output is help */
+if (process.argv.length <= 2) program.outputHelp();
