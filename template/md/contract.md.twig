@@ -1,7 +1,7 @@
 {% macro showParams (params, paramsSeq) %}
 {%  if paramsSeq | length  %}
-|#|Param|Type|TypeHint|Description|
-|-|-----|----|--------|-----------|
+|#  |Param|Type|TypeHint|Description|
+|---|-----|----|--------|-----------|
 {%  for pos,paramName in paramsSeq %}
 {%  set param = params[paramName] %}
 |{{ pos }}|{{ paramName }}|{{ param.type }}|{{ param.typeHint }}|{{ param.description }}|
@@ -15,12 +15,14 @@ empty list
 
 {% macro inputParams (func, title) %}
 ##### {{ title }}
+
 {{ _self.showParams (func.params, func.paramsSeq) }}
 {% endmacro %}
 
 
 {% macro returnParams (func) %}
 ##### Returns
+
 {{ _self.showParams (func.returns, func.returnsSeq) }}
 {% endmacro %}
 
@@ -91,8 +93,8 @@ empty list
 
 {% for enum in enums  %}
 {{  doc.header (enum) }}
-|#|Member|Description|
-|-|------|-----------|
+|#  |Member|Description|
+|---|------|-----------|
 {%  for pos, member in enum.members %}
 |{{ pos }}|{{ member }}|{{ enum.params[member].description }}|
 {%  endfor %}
