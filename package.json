@@ -1,6 +1,6 @@
 {
   "name": "solidity-doc",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "",
   "main": "index.js",
   "bin": {
@@ -16,7 +16,7 @@
     "url": "https://github.com/vitiko/solidity-doc.git"
   },
   "dependencies": {
-    "solidity-structure": "^0.1.10",
+    "solidity-structure": "^0.1.17",
     "twig": "^1.10.4"
   }
 }
